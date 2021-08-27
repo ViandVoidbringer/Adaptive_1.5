@@ -1,0 +1,25 @@
+{
+  "name": "adaptive_1.5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ViandVoidbringer"
+  },
+  "author": "ViandVoidbringer",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-util": "^3.0.8",
+    "vinyl-ftp": "^0.6.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.38.1"
+  }
+}
