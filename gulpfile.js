@@ -1,31 +1,59 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass = require('gulp-sass')(require('sass'));
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('sass', function(done) {
-    gulp.src("scr/sass/*.sass")
-        .pipe(sass())
-        .pipe(gulp.dest("src/css"))
+
+const sassFiles = [
+    './src/sass/style.sass', 
+    './src/sass/media.sass'
+]
+/*
+function prefix() {
+	return gulp.src('./src/build/css/*.css')
+		.pipe(autoprefixer({
+			cascade: false
+		}))
+        .pipe(gulp.dest('./src/build/css'))
         .pipe(browserSync.stream());
 
-
-    done();
-});
-
-gulp.task('serve', function(done) {
+    }
+*/
+function serve(){
 
     browserSync.init({
-        server: "src/"
+        server: 'src/'
     });
 
-    gulp.watch("src/sass/*.sass", gulp.series('sass'));
-    gulp.watch("src/*.html").on('change', () => {
+    gulp.watch('src/sass/*.sass', gulp.series('concat_sass'));
+    gulp.watch(['src/*.html', 'src/sass/*.sass']).on('change', () => {
       browserSync.reload();
-      done();
-    });
-  
+    }); 
 
-    done();
-});
+}
 
-gulp.task('default', gulp.series('sass', 'serve'));
+
+function concat_sass(){
+    return gulp.src(sassFiles)
+    .pipe(concat('constructed.sass'))
+    .pipe(gulp.dest('./src/build/sass'))
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./src/build/css'));
+}
+
+/*function compile_sass() {
+    return gulp.src('./src/build/sass')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./src/build/css'));
+}
+*/
+gulp.task('serve', serve);
+gulp.task('concat_sass', concat_sass);
+//gulp.task('compile_sass', compile_sass);
+//gulp.task('prefix', prefix);
