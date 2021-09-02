@@ -1,0 +1,94 @@
+.header_main_btn_sqr, .header_main_first_text, .header .nav_block .btn_sqr, .header .nav_block .ul-nav li {
+  font-family: Inter, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  color: white;
+}
+
+.header {
+  background: linear-gradient(264.47deg, #2E43F0 29.39%, #6677FF 93.49%);
+  height: 810px;
+}
+.header .nav_block {
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.header .nav_block .ul-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header .nav_block .ul-nav li {
+  list-style-type: none;
+  margin-left: 29px;
+  color: white;
+}
+.header .nav_block_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding: 15px 30px;
+}
+.header .nav_block .btn_sqr {
+  width: 172px;
+  height: 62px;
+  background: #FF5A05;
+  border-radius: 4px;
+}
+.header_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+.header_main_first {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 365px;
+}
+.header_main_first_text h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.header_main_first_text h1 {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 60px;
+}
+.header_main_first_text h1 .insp1 {
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 73px;
+}
+.header_main_btn_sqr {
+  width: 172px;
+  height: 62px;
+  background: #FF5A05;
+  border-radius: 4px;
+}

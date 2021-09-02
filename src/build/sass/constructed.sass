@@ -1,11 +1,75 @@
-body
- background-color: blue
-p
- color: green
- font-size: 300px
-a
- color: yellow
+$font-stack: Inter, Helvetica, sans-serif
+$button-color: #FF5A05
+%Inter_st
+ font:
+  family: $font-stack
+  style: normal
+  weight: 500
+  size: 20px
+ line-height: 160% 
+ color: white
 
-p
- color: red
- font-size: 20px
+.header
+ background: linear-gradient(264.47deg, #2E43F0 29.39%, #6677FF 93.49%)
+ height: 810px 
+ .nav_block
+  height: 130px
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  align-items: center
+  .ul-nav
+   display: flex
+   li
+    list-style-type: none
+    margin-left: 29px
+    color: white
+    @extend %Inter_st
+  &_btn
+   display: flex
+   flex-direction: row
+   align-items: flex-start
+   padding: 15px 30px
+  .btn_sqr
+   width: 172px
+   height: 62px
+   background: $button-color
+   border-radius: 4px
+   @extend %Inter_st
+ &_main 
+  display: flex
+  justify-content: space-around
+  &_first
+   flex-direction: column
+   width: 365px
+   &_text
+    @extend %Inter_st
+    h3
+     font:
+      weight: 600
+      size: 20px
+     line-height: 160%
+     text-transform: uppercase
+     letter-spacing: 0.1em  
+    h1 
+     font:
+      weight: 500
+      size: 50px
+     line-height: 60px    
+     .insp1
+      font:
+       size: 61px
+       weight: 700 
+      line-height: 73px
+  &_btn_sqr
+   width: 172px
+   height: 62px
+   background: $button-color
+   border-radius: 4px
+   @extend %Inter_st
+ 
+
+
+  
+  
+

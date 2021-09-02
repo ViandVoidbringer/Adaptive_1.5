@@ -10,17 +10,20 @@ const sassFiles = [
     './src/sass/style.sass', 
     './src/sass/media.sass'
 ]
-/*
+
 function prefix() {
 	return gulp.src('./src/build/css/*.css')
-		.pipe(autoprefixer({
-			cascade: false
-		}))
-        .pipe(gulp.dest('./src/build/css'))
+    .pipe(autoprefixer({
+        "browserslist": [
+            "defaults"
+          ],
+        cascade: false
+    }))
+        .pipe(gulp.dest('./src/bind/css'))
         .pipe(browserSync.stream());
 
     }
-*/
+
 function serve(){
 
     browserSync.init({
@@ -29,11 +32,12 @@ function serve(){
 
     gulp.watch('src/sass/*.sass', gulp.series('concat_sass'));
     gulp.watch(['src/*.html', 'src/sass/*.sass']).on('change', () => {
-      browserSync.reload();
+      browserSync.reload(); 
     }); 
 
 }
 
+// Не писать данные в самом constructed.sass/css
 
 function concat_sass(){
     return gulp.src(sassFiles)
@@ -42,18 +46,10 @@ function concat_sass(){
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./src/build/css'));
+    .pipe(gulp.dest('./src/build/css'))
 }
 
-/*function compile_sass() {
-    return gulp.src('./src/build/sass')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./src/build/css'));
-}
-*/
+
 gulp.task('serve', serve);
 gulp.task('concat_sass', concat_sass);
-//gulp.task('compile_sass', compile_sass);
-//gulp.task('prefix', prefix);
+gulp.task('prefix', prefix);
